@@ -6,6 +6,7 @@ import project.ty.model.Employee;
 import project.ty.service.EmployeeService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ProjectController {
@@ -13,7 +14,7 @@ public class ProjectController {
     @Autowired
     EmployeeService projectService;
 
-    @RequestMapping({ "/hello" })
+    @GetMapping({ "/hello" })
     public String firstPage() {
         return "Hello World";
     }
@@ -23,13 +24,24 @@ public class ProjectController {
         return this.projectService.getAllEmployees();
     }
 
-    @PostMapping("/Employee")
+    @GetMapping("/Employee/{id}")
+    public Optional<Employee> allEmployees(@PathVariable Long id){
+        return this.projectService.getEmployeeById(id);
+    }
+
+    @PostMapping("/Employees")
     public Employee addEmployee(@RequestBody Employee employee){
         return this.projectService.saveEmployee(employee);
     }
 
-    @DeleteMapping("/Employee")
-    public void employeeDeleted (@RequestParam("id") Long id){
+    @DeleteMapping("/Employee/{id}")
+    public String employeeDeleted (@PathVariable("id") Long id){
         this.projectService.deleteEmployee(id);
+        return id + " geloescht";
+    }
+
+    @PutMapping("/Employees")
+    public void updateEmployee(@RequestBody Employee employee){
+        this.projectService.updateEmployee(employee);
     }
 }

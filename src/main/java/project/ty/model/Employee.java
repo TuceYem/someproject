@@ -1,13 +1,13 @@
 package project.ty.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+
+
 
 @Entity
-@Table
-public class Employee {
+@Table(name = "employee")
+public class Employee{
 
     @Id
     @Column
@@ -16,6 +16,8 @@ public class Employee {
     private String Firstname;
     @Column
     private String Lastname;
+    @Column
+    private int Age;
     @Column
     private String Org;
 
@@ -41,6 +43,14 @@ public class Employee {
 
     public void setLastname(String lastname) {
         Lastname = lastname;
+    }
+
+    public int getAge() {
+        return Age;
+    }
+
+    public void setAge(int age) {
+        Age = age;
     }
 
     public String getOrg() {
