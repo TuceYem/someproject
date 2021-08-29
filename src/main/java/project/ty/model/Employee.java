@@ -13,13 +13,13 @@ public class Employee{
     @Column
     private Long id;
     @Column
-    private String Firstname;
+    private String firstname;
     @Column
-    private String Lastname;
+    private String lastname;
     @Column
-    private int Age;
+    private int age;
     @Column
-    private String Org;
+    private String org;
 
     public Long getId() {
         return id;
@@ -30,44 +30,44 @@ public class Employee{
     }
 
     public String getFirstname() {
-        return Firstname;
+        return firstname;
     }
 
     public void setFirstname(String firstname) {
-        Firstname = firstname;
+        this.firstname = firstname;
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        this.lastname = lastname;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(int age) {
-        Age = age;
+        this.age = age;
     }
 
     public String getOrg() {
-        return Org;
+        return org;
     }
 
     public void setOrg(String org) {
-        this.Org = org;
+        this.org = org;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", Firstname='" + Firstname + '\'' +
-                ", Lastname='" + Lastname + '\'' +
-                ", Org='" + Org + '\'' +
+                ", Firstname='" + firstname + '\'' +
+                ", Lastname='" + lastname + '\'' +
+                ", Org='" + org + '\'' +
                 '}';
     }
 }
